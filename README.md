@@ -1,0 +1,3 @@
+# NasCollectionTools
+
+This repo is for cleaning the NAS Collection of movies, tvshows, documents, etc...
