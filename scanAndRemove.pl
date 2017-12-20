@@ -8,10 +8,11 @@ use File::Copy qw(move);
 # The caution is some tags may be legit in the file name but we will remove them
 
 
-@baseArray = qw (/Volumes/movies/movies/ /Volumes/educational/educational/  /Volumes/tvshows/tvshows/  /Volumes/tvshows/videos/ /Volumes/booksAndAudio/epubs /Volumes/booksAndAudio/audiobooks/ Volumes/booksAndAudio/ebooks/);
+#@baseArray = qw (/Volumes/movies/movies/ /Volumes/educational/educational/  /Volumes/tvshows/tvshows/  /Volumes/tvshows/videos/ /Volumes/booksAndAudio/epubs /Volumes/booksAndAudio/audiobooks/ Volumes/booksAndAudio/ebooks/);
+@baseArray = qw (/Volumes/tvshows/videos/ );
 
 # this is the tags to remove 
-@remove = qw[ \[ \] eztv x264 YTS AAC  lol hdtv yify 720p 1080p QPEL DIMENSION DVDRIP ETRG xvid bbrip ChattChitto ac3 -ift hdrip  brip RARBG -EVO __ wwww torentz .ro 3xforum JKY DTS FXG hindi maxspeed dvdscr WEB-DL  MkvCage h264 dd5 ethd brrip BOKUTOX axxo DMMovies KartiKing ExtraTorrentRG dummy]  ;
+@remove = qw[ \[ \] eztv x264 YTS AAC  lol nezu bluray w4f hdtv yify 720p 1080p QPEL DIMENSION DVDRIP ETRG xvid bbrip ChattChitto ac3 -ift hdrip  brip RARBG -EVO __ wwww torentz .ro 3xforum JKY DTS FXG hindi maxspeed dvdscr WEB-DL  MkvCage h264 dd5 ethd brrip BOKUTOX axxo DMMovies KartiKing ExtraTorrentRG dummy]  ;
 
 foreach  $basedir (@baseArray) {
     find(\&test, $basedir);
