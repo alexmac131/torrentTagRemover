@@ -12,6 +12,8 @@ require tags;
 @baseArray = qw (/Volumes/movies/movies/ /Volumes/educational/educational/  /Volumes/tvshows/tvshows/  /Volumes/tvshows/videos/ /Volumes/booksAndAudio/epubs /Volumes/booksAndAudio/audiobooks/ Volumes/booksAndAudio/ebooks/);
 #@baseArray = qw (/Volumes/tvshows/videos/ );
 
+# this is the tags to remove 
+
 foreach  $basedir (@baseArray) {
     find(\&test, $basedir);
 }
@@ -19,7 +21,7 @@ foreach  $basedir (@baseArray) {
 sub test {
     my $test = $_ ;
     my $match = 0;
-    if (-f $_) {
+    if (-d $_) {
         my $origin = $test; 
         foreach my $toTest (@remove) {
             if ($test =~ s/\Q$toTest//i) {
@@ -35,7 +37,6 @@ sub test {
            $test =~ s/\.mkv\.mkv/\.mkv/g;
            $test =~ s/\.{2,}/\./g;
            $test =~ s/ /_/g;
-           $test =~ s/\.-\./_/g;
            $test =~ s/_{2,}/_/g;
            $test =~ s/_\./\./g;
             $cwd = getcwd();
