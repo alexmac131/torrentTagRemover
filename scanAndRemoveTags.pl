@@ -9,8 +9,9 @@ require tags;
 # The caution is some tags may be legit in the file name but we will remove them
 
 
-@baseArray = qw (/Volumes/movies/movies/ /Volumes/educational/educational/  /Volumes/tvshows/tvshows/  /Volumes/tvshows/videos/ /Volumes/booksAndAudio/epubs /Volumes/booksAndAudio/audiobooks/ Volumes/booksAndAudio/ebooks/);
-#@baseArray = qw (/Volumes/tvshows/videos/ );
+#@baseArray = qw (/Volumes/movies/movies/ /Volumes/educational/educational/  /Volumes/tvshows/tvshows/  /Volumes/tvshows/videos/ /Volumes/booksAndAudio/epubs /Volumes/booksAndAudio/audiobooks/ Volumes/booksAndAudio/ebooks/);
+
+@baseArray = qw (/Volumes/tvshows/videos/ );
 
 foreach  $basedir (@baseArray) {
     find(\&test, $basedir);
@@ -18,6 +19,7 @@ foreach  $basedir (@baseArray) {
 
 sub test {
     my $test = $_ ;
+    print "testing $test \n";
     my $match = 0;
     if (-f $_) {
         my $origin = $test; 
@@ -38,6 +40,7 @@ sub test {
            $test =~ s/\.-\./_/g;
            $test =~ s/_{2,}/_/g;
            $test =~ s/_\./\./g;
+           $test =~ s/\.{2,}/\./g;
             $cwd = getcwd();
             $src = $cwd . "/" . $origin;
             $target = $cwd . "/" . $test;

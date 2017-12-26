@@ -9,8 +9,8 @@ require tags;
 # The caution is some tags may be legit in the file name but we will remove them
 
 
-@baseArray = qw (/Volumes/movies/movies/ /Volumes/educational/educational/  /Volumes/tvshows/tvshows/  /Volumes/tvshows/videos/ /Volumes/booksAndAudio/epubs /Volumes/booksAndAudio/audiobooks/ Volumes/booksAndAudio/ebooks/);
-#@baseArray = qw (/Volumes/tvshows/videos/ );
+#@baseArray = qw (/Volumes/movies/movies/ /Volumes/educational/educational/  /Volumes/tvshows/tvshows/  /Volumes/tvshows/videos/ /Volumes/booksAndAudio/epubs /Volumes/booksAndAudio/audiobooks/ Volumes/booksAndAudio/ebooks/);
+@baseArray = qw (/Volumes/tvshows/videos/ );
 
 # this is the tags to remove 
 
@@ -39,6 +39,8 @@ sub test {
            $test =~ s/ /_/g;
            $test =~ s/_{2,}/_/g;
            $test =~ s/_\./\./g;
+           $test =~ s/\-$//g;
+           $test =~ s/_$//g;
             $cwd = getcwd();
             $src = $cwd . "/" . $origin;
             $target = $cwd . "/" . $test;
